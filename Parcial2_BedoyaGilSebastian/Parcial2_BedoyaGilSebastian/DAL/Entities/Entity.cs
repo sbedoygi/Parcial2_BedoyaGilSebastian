@@ -1,7 +1,17 @@
-﻿namespace Parcial2_BedoyaGilSebastian.DAL.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace Parcial2_BedoyaGilSebastian.DAL.Entities
 {
     public class Entity
     {
-        public  Guid Id { get; set; }
+        [Key]
+        public virtual Guid Id { get; set; }
+
+
+        public virtual DateTime? CreatedDate { get; set; }
+
+
+        public virtual DateTime? ModifiedDate { get; set; }
     }
 }
