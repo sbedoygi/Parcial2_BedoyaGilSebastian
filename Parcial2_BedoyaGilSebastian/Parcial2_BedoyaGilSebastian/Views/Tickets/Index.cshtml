@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Parcial2_BedoyaGilSebastian.DAL.Entities.Tickets>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
+<h1>Boleteria</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Crear nuevo</a>
+</p>
+
+<div class="row">
+   <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+           </div>
+            <div class="panel-body">
+            <table class="table">
+            <thead>
+             <tr>
+              <th>
+                @Html.DisplayNameFor(model => model.UseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsUsed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntranceGate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var tickets in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => tickets.UseDate)
+            </td>
+            <td>
+                                    @Html.DisplayFor(modelItem => tickets.IsUsed)
+            </td>
+            <td>
+                                    @Html.DisplayFor(modelItem => tickets.EntranceGate)
+            </td>
+            <td>
+                                    @Html.DisplayFor(modelItem => tickets.CreatedDate)
+            </td>
+            <td>
+                                    @Html.DisplayFor(modelItem => tickets.ModifiedDate)
+            </td>
+            <td>
+                                    <a asp-action="Edit" asp-route-id="@tickets.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@tickets.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@tickets.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+           </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#CountryTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                },
+                "aLengthMenu": [
+                    [5, 25, 50, 100, 200, -1],
+                    [5, 25, 50, 100, 200, "Todos"]
+                ]
+            });
+        });
+    </script>
+}
