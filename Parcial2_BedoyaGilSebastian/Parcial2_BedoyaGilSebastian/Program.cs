@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Parcial2_BedoyaGilSebastian.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataBaseContextcs>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+
 
 var app = builder.Build();
 
