@@ -18,5 +18,7 @@ namespace Parcial2_BedoyaGilSebastian.DAL
             modelBuilder.Entity<Tickets>().HasIndex(c => c.UseDate).IsUnique();
         }
 
+
+
     }
 }

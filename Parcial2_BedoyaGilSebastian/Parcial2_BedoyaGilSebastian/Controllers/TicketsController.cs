@@ -28,6 +28,10 @@ namespace Parcial2_BedoyaGilSebastian.Controllers
                           Problem("Entity set 'DataBaseContextcs.Ticketes'  is null.");
         }
 
+
+
+
+
         // GET: Tickets/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -178,5 +182,9 @@ namespace Parcial2_BedoyaGilSebastian.Controllers
         {
           return (_context.Ticketes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+
+
     }
+
 }
